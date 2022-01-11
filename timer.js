@@ -54,13 +54,13 @@ async function run() {
         console.log('round start');
         document.getElementById('head').innerHTML = 'Round ' + round;
         
-        kind.innerHTML = 'Pause';
+        kind.innerHTML = 'Break';
         //kind.style.color = 'green';
         document.body.style.backgroundColor = "green";
         timer = new Timer(10);
         await timer.start();
         
-        kind.innerHTML = 'Interval';
+        kind.innerHTML = 'Work';
         //kind.style.color = 'red';
         document.body.style.backgroundColor = "red";
         timer = new Timer(20);
@@ -68,7 +68,7 @@ async function run() {
 
         if(round == rounds) {
             // final round is over
-            kind.innerHTML = 'You made it';
+            kind.innerHTML = 'You made it! 💪🏼';
             document.body.style.backgroundColor = "blue";
             break;
         }
