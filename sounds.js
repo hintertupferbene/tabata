@@ -1,6 +1,9 @@
 var sounds = {
   "bing" : {
     url : "bing.mp3"
+  },
+  "fanfare": {
+    url: "fanfare.mp3"
   }
 };
 

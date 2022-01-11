@@ -29,7 +29,7 @@ class Timer {
         this.interval_id = 0;
     }
 
-    async start() {
+    async start(last = false) {
         console.log('start');
         //this.interval_id = setInterval(this.count_down, 1000);
         console.log(this.remaining);
@@ -37,7 +37,11 @@ class Timer {
             await wait(1000);
             this.count_down();
         }
-        playSound('bing');
+        if (last) {
+            playSound('fanfare');
+        } else {
+            playSound('bing');
+        }
     }
 
     count_down() {
@@ -64,9 +68,10 @@ async function run() {
         //kind.style.color = 'red';
         document.body.style.backgroundColor = "red";
         timer = new Timer(20);
-        await timer.start();
+        var last_round = round == rounds;
+        await timer.start(last_round);
 
-        if(round == rounds) {
+        if (last_round) {
             // final round is over
             kind.innerHTML = 'You made it! 💪🏼';
             document.body.style.backgroundColor = "blue";
